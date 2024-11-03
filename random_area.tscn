@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcje2jhvmf7t5"]
+
+[ext_resource type="Script" path="res://scripts/random_area.gd" id="1_e5erw"]
+
+[node name="random_area" type="Line2D"]
+position = Vector2(-2, 2)
+points = PackedVector2Array(0, 0, 500, 0, 500, 100, 0, 100)
+closed = true
+width = 5.0
+script = ExtResource("1_e5erw")
+pos2 = Vector2(500, 100)
+Exclude_pos1 = Vector2(10, 10)
+Exclude_pos2 = Vector2(20, 20)
+
+[node name="pos2" type="Node2D" parent="."]
+position = Vector2(500, 100)
+
+[node name="E_1" type="Node2D" parent="."]
+position = Vector2(10, 10)
+
+[node name="E_2" type="Node2D" parent="."]
+position = Vector2(20, 20)
+
+[node name="forbidden zone" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(10, 10, 20, 10, 20, 20, 10, 20)
+closed = true
+width = 5.0
+default_color = Color(1, 0.113228, 0.16187, 1)
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
